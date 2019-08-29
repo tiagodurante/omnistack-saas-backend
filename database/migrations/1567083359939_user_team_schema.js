@@ -9,7 +9,7 @@ class UserTeamSchema extends Schema {
       table.increments();
       table
         .integer("user_id")
-        .unsignetd()
+        .unsigned()
         .notNullable()
         .references("id")
         .inTable("users")
@@ -17,7 +17,7 @@ class UserTeamSchema extends Schema {
         .onDelete("CASCADE");
       table
         .integer("team_id")
-        .unsignetd()
+        .unsigned()
         .notNullable()
         .references("id")
         .inTable("teams")

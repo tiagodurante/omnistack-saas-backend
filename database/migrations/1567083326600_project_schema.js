@@ -10,7 +10,7 @@ class ProjectSchema extends Schema {
       table.string("title").notNullable();
       table
         .integer("team_id")
-        .unsignetd()
+        .unsigned()
         .notNullable()
         .references("id")
         .inTable("teams")

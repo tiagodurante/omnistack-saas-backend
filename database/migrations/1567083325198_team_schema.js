@@ -10,7 +10,7 @@ class TeamSchema extends Schema {
       table.string("name").notNullable();
       table
         .integer("user_id")
-        .unsignetd()
+        .unsigned()
         .notNullable()
         .references("id")
         .inTable("users")
