@@ -17,6 +17,34 @@ class User extends Model {
     });
   }
 
+  teamJoins() {
+    return this.hasMany("App/Models/UserTeam");
+  }
+
+  async is(expression) {
+    const team = await this.teamJoins()
+      .where("team_id", this.currentTeam)
+      .first();
+
+    return team.is(expression);
+  }
+
+  async can(expression) {
+    const team = await this.teamJoins()
+      .where("team_id", this.currentTeam)
+      .first();
+
+    return team.can(expression);
+  }
+
+  async scope(required) {
+    const team = await this.teamJoins()
+      .where("team_id", this.currentTeam)
+      .first();
+
+    return team.scope(required);
+  }
+
   tokens() {
     return this.hasMany("App/Models/Token");
   }
